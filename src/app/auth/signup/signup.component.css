@@ -4,4 +4,6 @@ mat-form-field {
 
 .register-card {
 	width: 350px;
+	margin-left: auto;
+	margin-right: auto;
 }
