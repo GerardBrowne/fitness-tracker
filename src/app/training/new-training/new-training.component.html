@@ -1,6 +1,6 @@
 <section class="new-training" fxLayout fxLayoutAlign="center">
 	<form (ngSubmit)="onStartTraining(f)" #f="ngForm">
-		<mat-card fxFlex.xs="100%" fxFlex="400px">
+		<mat-card fxFlex.xs="100%" fxFlex="400px" class="training-card">
 			<mat-card-title fxLayoutAlign="center">Time to start a workout!</mat-card-title>
 			<mat-card-content fxLayoutAlign="center">
 				<mat-form-field>
@@ -14,4 +14,8 @@
 			</mat-card-actions>
 		</mat-card>
 	</form>
+</section>
+
+<section>
+	<app-training-descriptions></app-training-descriptions>
 </section>

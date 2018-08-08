@@ -4,10 +4,18 @@ import { Exercise } from './exercise.model';
 export class TrainingService {
 	exerciseChanged = new Subject<Exercise>();
 	private availableExercises: Exercise[] = [
-		{ id: 'crunches', name: 'Crunches', duration: 30, calories: 8 },
-		{ id: 'touch-toes', name: 'Touch Toes', duration: 180, calories: 15 },
-		{ id: 'pull-ups', name: 'Pull Ups', duration: 120, calories: 18 },
-		{ id: 'sit-ups', name: 'Sit Ups', duration: 60, calories: 8 }
+		{ id: 'supermans', name: 'Supermans', duration: 45, calories: 60 },
+		{ id: 'push-ups', name: 'Push Ups', duration: 30, calories: 90  },
+		{ id: 'downward-facing-dog', name: 'Downward Facing Dog', duration: 60, calories: 100 },
+		{ id: 'crunches', name: 'Crunches', duration: 60, calories: 100 },
+		{ id: 'front-plank', name: 'Front Plank', duration: 30, calories: 50 },
+		{ id: 'cobra', name: 'Cobra', duration: 120, calories: 140 },
+		{ id: 'squat-jumps', name: 'Squat Jumps', duration: 120, calories: 180, },
+		{ id: 'forward-lunge', name: 'Forward Lunge', duration: 60, calories: 100 },
+		{ id: 'glute-bridge', name: 'Glute Bridge', duration: 90, calories: 120 },
+		{ id: 'side-lunge', name: 'Side Lunge', duration: 30, calories: 50 },
+		{ id: 'single-leg-stand', name: 'Single Leg Stand', duration: 45, calories: 60 },
+		{ id: 'supine-reverse-crunches', name: 'Supine Reverse Crunches', duration: 30, calories: 50 }
 	];
 	private runningExercise: Exercise;
 	private exercises: Exercise[] = [];

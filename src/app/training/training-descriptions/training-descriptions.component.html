@@ -1,0 +1,12 @@
+<section *ngFor="let desc of descriptions">
+	<mat-card fxLayoutAlign="center center" class="desc-card">
+		<mat-card-header>
+			<mat-card-title class="desc-title">
+				{{ desc.name }}
+			</mat-card-title>
+		</mat-card-header>
+		<mat-card-content class="desc-body">
+			<p>{{ desc.description }}</p>
+		</mat-card-content>
+	</mat-card>
+</section>
