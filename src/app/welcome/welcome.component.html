@@ -1,14 +1,63 @@
-<div class="welcome" fxLayout="column" fxLayout.gt-md="row" fxLayoutGap.gt-md="20px" fxLayoutAlign="center center">
-	<section>
-		<h1>ACTIVITY</h1>
-		<p>Stay active and enjoy better health and more fun!</p>
-	</section>
-	<section>
-		<h1>COMMUNITY</h1>
-		<p>Get to know other people who share your passion!</p>
-	</section>
-	<section>
-		<h1>CHALLENGES</h1>
-		<p>Never stop! Dive into new challenges every day</p>
-	</section>
+<div
+	class="welcome"
+	fxLayout="column"
+	fxLayout.gt-md="row"
+	fxLayoutGap="10px"
+	fxLayoutGap.gt-md="20px"
+	fxLayoutAlign="center center">
+	<mat-card class="welcome-card">
+		<mat-card-header>
+			<mat-card-title><h2>ACTIVITY</h2></mat-card-title>
+		</mat-card-header>
+		<img mat-card-image src="./assets/activity.jpg" alt="Activity Photo">
+		<mat-card-content>
+			<div class="container">
+				<p>
+					Stay active and enjoy better health and more fun!
+				</p>
+			</div>
+		</mat-card-content>
+		<mat-card-actions>
+			<button mat-raised-button color="primary">LIKE</button>
+			<button mat-raised-button color="accent">SHARE</button>
+			<button mat-raised-button color="warn">SUBSCRIBE</button>
+		</mat-card-actions>
+	</mat-card>
+	<mat-card class="welcome-card">
+		<mat-card-header>
+			<mat-card-title><h2>COMMUNITY</h2></mat-card-title>
+		</mat-card-header>
+		<img mat-card-image src="./assets/community.jpg" alt="Community Photo">
+		<mat-card-content>
+			<div class="container">
+				<p>
+					Get to know other people who share your passion!
+				</p>
+			</div>
+		</mat-card-content>
+		<mat-card-actions>
+			<button mat-raised-button color="primary">LIKE</button>
+			<button mat-raised-button color="accent">SHARE</button>
+			<button mat-raised-button color="warn">SUBSCRIBE</button>
+		</mat-card-actions>
+	</mat-card>
+	<mat-card class="welcome-card">
+		<mat-card-header>
+			<mat-card-title><h2>CHALLENGES</h2></mat-card-title>
+		</mat-card-header>
+		<img mat-card-image src="./assets/challenge1.jpg" alt="Challenge Photo">
+		<mat-card-content>
+			<div class="container">
+				<p>
+					Never stop! Dive into new challenges every day.
+				</p>
+			</div>
+		</mat-card-content>
+		<mat-card-actions>
+			<button mat-raised-button color="primary">LIKE</button>
+			<button mat-raised-button color="accent">SHARE</button>
+			<button mat-raised-button color="warn">SUBSCRIBE</button>
+		</mat-card-actions>
+	</mat-card>
 </div>
+<br>

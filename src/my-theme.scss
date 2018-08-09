@@ -1,14 +1,23 @@
 @import '~@angular/material/theming';
 
+//Light Theme
+// @include mat-core();
+
+// $candy-app-primary: mat-palette($mat-indigo);
+// $candy-app-accent:  mat-palette($mat-red, A200, A100, A400);
+// $candy-app-warn:    mat-palette($mat-orange);
+
+// $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
+
+// @include angular-material-theme($candy-app-theme);
+
+// Dark Theme
 @include mat-core();
 
-$candy-app-primary: mat-palette($mat-indigo);
-$candy-app-accent:  mat-palette($mat-red, A200, A100, A400);
+$candy-app-primary: mat-palette($mat-blue);
+$candy-app-accent: mat-palette($mat-red, A200, A100, A400);
+$candy-app-warn: mat-palette($mat-orange);
 
-// The warn palette is optional (defaults to red).
-$candy-app-warn:    mat-palette($mat-orange);
-
-// Create the theme object (a Sass map containing all of the palettes).
-$candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
+$candy-app-theme: mat-dark-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
 
 @include angular-material-theme($candy-app-theme);

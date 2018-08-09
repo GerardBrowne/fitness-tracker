@@ -22,6 +22,7 @@ import { StopTrainingComponent } from './training/current-training/stop-training
 import { AuthService } from './auth/auth.service';
 import { TrainingService } from './training/training.service';
 import { environment } from '../environments/environment';
+import { FooterComponent } from './navigation/footer/footer.component';
 
 @NgModule({
 	declarations: [
@@ -36,6 +37,7 @@ import { environment } from '../environments/environment';
 		HeaderComponent,
 		SidenavListComponent,
 		StopTrainingComponent,
+		FooterComponent,
 	],
 	imports: [
 		BrowserModule,
