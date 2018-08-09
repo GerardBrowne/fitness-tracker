@@ -1,27 +1,37 @@
 import { Subject } from 'rxjs/Subject';
 import { Exercise } from './exercise.model';
+import { Injectable } from '../../../node_modules/@angular/core';
+import { AngularFirestore } from '../../../node_modules/angularfire2/firestore';
+import { map } from 'rxjs/operators';
 
+@Injectable()
 export class TrainingService {
 	exerciseChanged = new Subject<Exercise>();
-	private availableExercises: Exercise[] = [
-		{ id: 'supermans', name: 'Supermans', duration: 45, calories: 60 },
-		{ id: 'push-ups', name: 'Push Ups', duration: 30, calories: 90  },
-		{ id: 'downward-facing-dog', name: 'Downward Facing Dog', duration: 60, calories: 100 },
-		{ id: 'crunches', name: 'Crunches', duration: 60, calories: 100 },
-		{ id: 'front-plank', name: 'Front Plank', duration: 30, calories: 50 },
-		{ id: 'cobra', name: 'Cobra', duration: 120, calories: 140 },
-		{ id: 'squat-jumps', name: 'Squat Jumps', duration: 120, calories: 180, },
-		{ id: 'forward-lunge', name: 'Forward Lunge', duration: 60, calories: 100 },
-		{ id: 'glute-bridge', name: 'Glute Bridge', duration: 90, calories: 120 },
-		{ id: 'side-lunge', name: 'Side Lunge', duration: 30, calories: 50 },
-		{ id: 'single-leg-stand', name: 'Single Leg Stand', duration: 45, calories: 60 },
-		{ id: 'supine-reverse-crunches', name: 'Supine Reverse Crunches', duration: 30, calories: 50 }
-	];
+	exercisesChanged = new Subject<Exercise[]>();
+	private availableExercises: Exercise[] = [];
 	private runningExercise: Exercise;
 	private exercises: Exercise[] = [];
 
-	getAvailableExercises() {
-		return this.availableExercises.slice();
+	constructor(private db: AngularFirestore) {	}
+
+	fetchAvailableExercises() {
+		this.db
+			.collection('availableExercises')
+			.snapshotChanges()
+			.pipe(map(docArray => {
+				return docArray.map(doc => {
+					return {
+						id: doc.payload.doc.id,
+						name: doc.payload.doc.data()['name'],
+						duration: doc.payload.doc.data()['duration'],
+						calories: doc.payload.doc.data()['calories']
+					};
+				});
+			}))
+			.subscribe((exercises: Exercise[]) => {
+				this.availableExercises = exercises;
+				this.exercisesChanged.next([...this.availableExercises]);
+			});
 	}
 
 	startExercise(selectedId: string) {
