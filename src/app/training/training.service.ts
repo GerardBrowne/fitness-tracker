@@ -3,6 +3,7 @@ import { Exercise } from './exercise.model';
 import { Injectable } from '../../../node_modules/@angular/core';
 import { AngularFirestore } from '../../../node_modules/angularfire2/firestore';
 import { map } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 
 @Injectable()
 export class TrainingService {
@@ -11,11 +12,12 @@ export class TrainingService {
 	finishedExercisesChanged = new Subject<Exercise[]>();
 	private availableExercises: Exercise[] = [];
 	private runningExercise: Exercise;
+	private fbSubs: Subscription[] = [];
 
 	constructor(private db: AngularFirestore) {	}
 
 	fetchAvailableExercises() {
-		this.db
+		this.fbSubs.push(this.db
 			.collection('availableExercises')
 			.snapshotChanges()
 			.pipe(map(docArray => {
@@ -31,7 +33,7 @@ export class TrainingService {
 			.subscribe((exercises: Exercise[]) => {
 				this.availableExercises = exercises;
 				this.exercisesChanged.next([...this.availableExercises]);
-			});
+			}));
 	}
 
 	startExercise(selectedId: string) {
@@ -69,12 +71,16 @@ export class TrainingService {
 	}
 
 	fetchCompletedOrCancelledExercises() {
-		this.db
+		this.fbSubs.push(this.db
 			.collection('finishedExercises')
 			.valueChanges()
 			.subscribe((exercises: Exercise[]) => {
 				this.finishedExercisesChanged.next(exercises);
-			});
+			}));
+	}
+
+	cancelSubscriptions() {
+		this.fbSubs.forEach(sub => sub.unsubscribe());
 	}
 
 	private addDataToDatabase(exercise: Exercise) {
