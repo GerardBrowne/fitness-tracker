@@ -3,15 +3,31 @@
 			<mat-card-title fxLayout="column" fxLayoutAlign="center center">
 				Login</mat-card-title>
 			<mat-card-content>
-				<form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" #f="ngForm" (ngSubmit)="onSubmit(f)">
+				<form
+					fxLayout="column"
+					fxLayoutAlign="center center"
+					fxLayoutGap="10px"
+					[formGroup]="loginForm"
+					(ngSubmit)="onSubmit()">
 					<mat-form-field hintLabel="Please enter your email">
-						<input type="email" matInput placeholder="Your Email" ngModel name="email" email required #emailInput="ngModel">
-						<mat-error *ngIf="emailInput.hasError('required')"></mat-error>
+						<input
+							type="email"
+							matInput
+							placeholder="Your Email"
+							email required
+							formControlName="email">
+						<mat-error>Invalid or missing email address</mat-error>
 					</mat-form-field>
 					<mat-form-field hintLabel="Please enter your password">
-						<input type="password" matInput placeholder="Your Password" ngModel name="password" required minlength="6" #pwInput="ngModel">
+						<input
+							type="password"
+							matInput
+							placeholder="Your Password"
+							required
+							minlength="6"
+							formControlName="password">
 					</mat-form-field>
-					<button type="submit" mat-raised-button color="primary" [disabled]="f.invalid">Submit</button>
+					<button type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid">Submit</button>
 				</form>
 			</mat-card-content>
 		</mat-card>
