@@ -24,6 +24,7 @@ import { AuthService } from './auth/auth.service';
 import { TrainingService } from './training/training.service';
 import { environment } from '../environments/environment';
 import { FooterComponent } from './navigation/footer/footer.component';
+import { UIService } from './shared/ui.service';
 
 @NgModule({
 	declarations: [
@@ -52,7 +53,7 @@ import { FooterComponent } from './navigation/footer/footer.component';
 		AngularFirestoreModule,
 		AngularFireAuthModule
 	],
-	providers: [AuthService, TrainingService],
+	providers: [AuthService, TrainingService, UIService],
 	bootstrap: [AppComponent],
 	entryComponents: [StopTrainingComponent]
 })

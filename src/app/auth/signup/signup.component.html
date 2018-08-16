@@ -44,7 +44,6 @@
 				<mat-form-field>
 					<input type="text" matInput placeholder="Last Name" required>
 				</mat-form-field>
-
 				<mat-form-field>
 					<input type="email" matInput placeholder="Email" ngModel name="email" email required #emailInput="ngModel">
 					<mat-error *ngIf="emailInput.hasError('required')"></mat-error>
@@ -63,7 +62,14 @@
 				<a class="terms" href="/signup">View Terms & Conditions</a>
 				<mat-checkbox ngModel name="accept" required color="primary">
 					Accept Terms & Conditions</mat-checkbox>
-				<button type="submit" mat-raised-button color="primary" [disabled]="f.invalid">CRETE ACCOUNT</button>
+				<button *ngIf="!isLoading"
+					type="submit"
+					mat-raised-button
+					color="primary"
+					[disabled]="f.invalid">
+					CRETE ACCOUNT
+				</button>
+				<mat-spinner *ngIf="isLoading"></mat-spinner>
 			</form>
 		</mat-card-content>
 	</mat-card>
