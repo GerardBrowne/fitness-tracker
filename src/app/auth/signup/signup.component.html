@@ -39,10 +39,10 @@
 		<mat-card-content>
 			<form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" #f="ngForm" (ngSubmit)="onSubmit(f)">
 				<mat-form-field>
-					<input type="text" matInput placeholder="First Name" required>
+					<input type="text" matInput placeholder="First Name">
 				</mat-form-field>
 				<mat-form-field>
-					<input type="text" matInput placeholder="Last Name" required>
+					<input type="text" matInput placeholder="Last Name">
 				</mat-form-field>
 				<mat-form-field>
 					<input type="email" matInput placeholder="Email" ngModel name="email" email required #emailInput="ngModel">
