@@ -62,14 +62,14 @@
 				<a class="terms" href="/signup">View Terms & Conditions</a>
 				<mat-checkbox ngModel name="accept" required color="primary">
 					Accept Terms & Conditions</mat-checkbox>
-				<button *ngIf="!isLoading"
+				<button *ngIf="!(isLoading$ | async)"
 					type="submit"
 					mat-raised-button
 					color="primary"
 					[disabled]="f.invalid">
 					CRETE ACCOUNT
 				</button>
-				<mat-spinner *ngIf="isLoading"></mat-spinner>
+				<mat-spinner *ngIf="isLoading$ | async"></mat-spinner>
 			</form>
 		</mat-card-content>
 	</mat-card>

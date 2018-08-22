@@ -5,7 +5,7 @@ import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
 	{ path: '', component: WelcomeComponent },
-	{ path: 'training', loadChildren: './training/training.module#TrainingModule' }
+	{ path: 'training', loadChildren: './training/training.module#TrainingModule', canLoad: [AuthGuard] }
 ];
 
 @NgModule({
@@ -13,6 +13,4 @@ const routes: Routes = [
 	exports: [RouterModule],
 	providers: [AuthGuard]
 })
-export class AppRoutingModule {
-
-}
+export class AppRoutingModule {}
