@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Production URL
 
-https://ng-fitness-tracker-61320.firebaseapp.com/training
+https://ng-fitness-tracker-61320.firebaseapp.com/
 
 ## Development server
 
