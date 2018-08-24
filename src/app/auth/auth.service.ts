@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs/subject';
 import { AngularFireAuth } from 'angularfire2/auth';
 
 import { AuthData } from './auth-data.model';
